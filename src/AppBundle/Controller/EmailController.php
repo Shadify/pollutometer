@@ -25,7 +25,7 @@ class EmailController extends Controller
             ->setBody(
                 $this->renderView(
 // app/Resources/views/Emails/registration.html.twig
-                    'Emails/registration.html.twig',
+                    'emails/registration.html.twig',
                     array('name' => "Test")
                 ),
                 'text/html'
