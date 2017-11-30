@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>TimeStamp</th>
+        <th>Co</th>
+        <th>No</th>
+        <th>So</th>
+    </tr>
+    <tr>
+        {% for table in data %}
+        <td>{{ table.TimeStamp }}</td>
+        <td>{{ table.Co }}</td>
+        <td>{{ table.No }}</td>
+        <td>{{ table.So }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
