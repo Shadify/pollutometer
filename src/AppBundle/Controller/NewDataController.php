@@ -38,7 +38,6 @@ class NewDataController extends Controller
         $response->headers->set('Content-Type', 'application/json');
 
         return $response;
-
     }
 
 }

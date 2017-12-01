@@ -51,7 +51,6 @@ class HomeController extends Controller
         $data['TimeStamp'] = gmdate("l jS \of F Y h:i:s A", $data['TimeStamp']);
 
         $arr = [];
-        print_r($data);
         $CO = is_nan($aqi->calculateAQI("Co", $data['Co'], $tableObj)) ? 0 : $aqi->calculateAQI("Co", $data['Co'], $tableObj);
         $SO = is_nan($aqi->calculateAQI("So", $data['So'], $tableObj)) ? 0 : $aqi->calculateAQI("So", $data['So'], $tableObj);
         $NO = is_nan($aqi->calculateAQI("No", $data['No'], $tableObj)) ? 0 : $aqi->calculateAQI("No", $data['No'], $tableObj);
