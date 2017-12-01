@@ -5,11 +5,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+
 class AllDataController extends Controller
 {
     /**
      * @Route("/AllDataReadings", name="AllData")
      */
+
     public function GetAllData()
     {
         // Get cURL resource
@@ -23,13 +25,18 @@ class AllDataController extends Controller
         curl_close($curl);
 
         $data = json_decode($resp, true);
+
+
+        usort($data, function($a,$b){
+            return $a['TimeStamp'] - $b['TimeStamp'];
+        });
+
         foreach($data as $index => $item)
         {
             $data[$index]['TimeStamp'] = gmdate("l jS \of F Y h:i:s A", $item['TimeStamp']);
         }
 
         $parametersToTwig = array("data" => $data);
-
 
         return $this->render('default/AllDataPage.html.twig',$parametersToTwig);
 
