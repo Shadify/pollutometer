@@ -43,7 +43,6 @@ class NewDataController extends Controller
         if($aqi >= 151) $emailSender->sendEmail($data);
 
         return $response;
-
     }
 
 }
