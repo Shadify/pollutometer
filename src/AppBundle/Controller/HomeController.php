@@ -11,6 +11,7 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Utils\Aqi;
+use AppBundle\Utils\EmailSender;
 
 class HomeController extends Controller
 {
@@ -19,8 +20,10 @@ class HomeController extends Controller
      */
 
 
-    public function numberAction(Aqi $aqi)
+    public function numberAction(Aqi $aqi, EmailSender $emailSender)
     {
+        $emailSender->main();
+
         $table = array(
             'Co' => array('breakpoints' => [0, 4.4, 4.5, 9.4, 9.5, 12.4, 12.5, 15.4, 15.5, 30.4, 30.5, 40.4, 40.5, 50.4],
                 'aq' => [0, 50, 51, 100, 101, 150, 151, 200, 201, 300, 301, 400, 401, 500]),

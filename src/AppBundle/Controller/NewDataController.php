@@ -11,8 +11,6 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use AppBundle\Utils\Aqi;
-use AppBundle\Utils\EmailSender;
 
 class NewDataController extends Controller
 {
@@ -20,7 +18,7 @@ class NewDataController extends Controller
      * @Route("/latest")
      */
 
-    public function getLatestData(Aqi $aqi, EmailSender $emailSender)
+    public function getLatestData()
     {
         // Get cURL resource
         $curl = curl_init();
@@ -38,9 +36,6 @@ class NewDataController extends Controller
 
         $response = new Response($data);
         $response->headers->set('Content-Type', 'application/json');
-
-        $data = json_decode($resp, true);
-        if($aqi >= 151) $emailSender->sendEmail($data);
 
         return $response;
     }
