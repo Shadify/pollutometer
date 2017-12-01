@@ -9,12 +9,8 @@
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Utils\Aqi;
-
-
-
 
 class HomeController extends Controller
 {
@@ -59,7 +55,6 @@ class HomeController extends Controller
         array_push($arr, $CO, $SO, $NO);
         $max = max($arr);
         $data['Aqi'] = $max;
-
 
         return $this->render('default/index.html.twig', $data);
     }

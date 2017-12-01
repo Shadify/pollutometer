@@ -2,11 +2,11 @@
 /**
  * Created by PhpStorm.
  * User: marcin
- * Date: 11/23/17
- * Time: 10:21 AM
+ * Date: 01/12/17
+ * Time: 10:47
  */
 
-namespace AppBundle\Controller;
+namespace AppBundle\Utils;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -14,12 +14,9 @@ use Swift_SmtpTransport;
 use Swift_Mailer;
 use Swift_Message;
 
-class EmailController extends Controller
+class EmailSender extends Controller
 {
-    /**
-     * @Route("/email")
-     */
-    public function sendEmail()
+    public function sendEmail(array $data)
     {
 // Create the Transport
         $transport = (new Swift_SmtpTransport('mail.cock.li', 465, 'ssl'))
@@ -35,17 +32,11 @@ class EmailController extends Controller
             ->setFrom(['pollutometer@cumallover.me' => 'Pollutometer'])
             ->setTo(['marc560f@edu.easj.dk' => 'A name'])
             ->setBody($this->renderView(
-            // templates/emails/warning.html.twig
-                'warning.html.twig',
-                array('name' => 'Test')
-            ),
+                'emails/warning.html.twig', $data),
                 'text/html')
         ;
 
 // Send the message
         $result = $mailer->send($message);
-
-        return $this->render('warning.html.twig', array('name' => 'Test'));
     }
-
 }

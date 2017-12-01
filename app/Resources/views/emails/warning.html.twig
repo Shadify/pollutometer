@@ -1,0 +1,23 @@
+{# app/Resources/views/emails/registration.html.twig #}
+<h3>WARNING!</h3>
+
+<img src="https://i.imgflip.com/20b4q2.jpg"/>
+
+<div id="wrapper">
+    <table>
+        <tr>
+            <th>TimeStamp</th>
+            <th>Co</th>
+            <th>No</th>
+            <th>So</th>
+        </tr>
+        <tr id="latest">
+            <td>{{ data->TimeStamp }}</td>
+            <td>{{ Co }}</td>
+            <td>{{ No }}</td>
+            <td>{{ So }}</td>
+        </tr>
+    </table>
+</div>
+<a href="/AllDataReadings">All Data Page</a>
+<p id="aq">{{ Aqi }}</p>
