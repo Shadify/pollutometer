@@ -1,26 +1,33 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div id="wrapper">
-        <table border="1">
-            <tr>
-                <th>TimeStamp</th>
-                <th>Co</th>
-                <th>No</th>
-                <th>So</th>
-            </tr>
-            <tr id="latest">
-                <td>{{ TimeStamp }}</td>
-                <td>{{ Co }}</td>
-                <td>{{ No }}</td>
-                <td>{{ So }}</td>
-            </tr>
-        </table>
+    <div class="columns">
+        <div class="column">
+            <table class="table">
+                <thead class="thead">
+                <tr class="tr">
+                    <th class="td">TimeStamp</th>
+                    <th class="td">Co</th>
+                    <th class="td">No</th>
+                    <th class="td">So</th>
+                </tr>
+                </thead>
+                <tbody class="tbody">
+                <tr id="latest" class="tr">
+                    <td class="td">{{ TimeStamp }}</td>
+                    <td class="td">{{ Co }}</td>
+                    <td class="td">{{ No }}</td>
+                    <td class="td">{{ So }}</td>
+                </tr>
+                </tbody>
+            </table>
+            <p id="aq">The current air quality index is <strong>{{ Aqi }}</strong></p>
+        </div>
+        <div class="column">
+            <img src="https://www.ourair.org/wp-content/uploads/AQItable.gif">
+        </div>
     </div>
-    <a href="/AllDataReadings">All Data Page</a>
 
-    <p id="aq">The current air quality index is <strong>{{ Aqi }}</strong></p>
-    <img src="https://www.ourair.org/wp-content/uploads/AQItable.gif">
 {% endblock %}
 {% block javascripts %}
     <script src="{{ asset('js/realtime.js') }}"></script>

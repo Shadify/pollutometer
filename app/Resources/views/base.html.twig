@@ -5,9 +5,23 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css"/>
     </head>
     <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation" style="margin: 0 0 3em 0">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <img src="https://cdn3.iconfinder.com/data/icons/christmas-icon-set-pixel-perfect/64/christmas-color-12-512.png" alt="Pollutometer" width="50px" height="auto">
+                <span>Pollutometer</span>
+            </a>
+            <a class="navbar-item" href="/AllDataReadings">
+                <span>All Data Readings</span>
+            </a>
+        </div>
+    </nav>
+    <div class="container">
         {% block body %}{% endblock %}
+    </div>
         {% block javascripts %}{% endblock %}
     </body>
 </html>
