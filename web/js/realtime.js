@@ -30,12 +30,12 @@ function calculateAQI(gasName, concentration) {
     var bpLowIndex, bpHiIndex;
 
     table[gasName].breakpoints.forEach(function(value, index) {
-        if(value < concentration && table[gasName].breakpoints[index + 1] > concentration) {
+        if(value <= concentration && table[gasName].breakpoints[index + 1] >= concentration) {
             bpLow = value;
             bpLowIndex = index;
         }
 
-        if(value > concentration && table[gasName].breakpoints[index - 1] < concentration) {
+        if(value >= concentration && table[gasName].breakpoints[index - 1] <= concentration) {
             bpHi = value;
             bpHiIndex = index;
         }
@@ -74,6 +74,7 @@ function update() {
             indexes.push(CO);
             indexes.push(NO);
             indexes.push(SO);
+
 
             var max = arrayMax(indexes);
 

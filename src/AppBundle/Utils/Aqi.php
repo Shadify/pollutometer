@@ -19,12 +19,12 @@ class Aqi {
 
         $arr = $table ->{$gasName} ->{'breakpoints'};
         foreach ($arr as $index => $value) {
-            if ($value < $concentration && $table->{$gasName}->{'breakpoints'}[$index + 1] > $concentration) {
+            if ($value <= $concentration && $table->{$gasName}->{'breakpoints'}[$index + 1] >= $concentration) {
                 $bpLow = $value;
                 $bpLowIndex = $index;
             }
 
-            if ($value > $concentration && $table->{$gasName}->{'breakpoints'}[$index - 1] < $concentration) {
+            if ($value >= $concentration && $table->{$gasName}->{'breakpoints'}[$index - 1] <= $concentration) {
                 $bpHi = $value;
                 $bpHiIndex = $index;
             }
