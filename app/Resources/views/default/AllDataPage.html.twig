@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>All Pollution Data | Pollutometer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
 </head>
 <body>
 <table border="1">
@@ -21,5 +22,9 @@
     </tr>
     {% endfor %}
 </table>
+<canvas id="ctx"></canvas>
 </body>
+{% block javascripts %}
+    <script src="{{ asset('js/chartOfReadings.js') }}"></script
+{% endblock %}
 </html>

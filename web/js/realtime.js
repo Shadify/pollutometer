@@ -90,6 +90,10 @@ function update() {
 
 }
 
+function drawChart() {
+
+}
+
 setInterval(update, 10000);
 
 
