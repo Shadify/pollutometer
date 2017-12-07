@@ -57,5 +57,4 @@ class HomeController extends Controller
 
         return $this->render('default/index.html.twig', $data);
     }
-
 }
