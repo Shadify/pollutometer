@@ -27,7 +27,7 @@ var datasets = [{
 
 
 
-fetch('/lastweek')
+fetch('/AllDataAverage')
     .then(function(response) {
         return response.json();
     })

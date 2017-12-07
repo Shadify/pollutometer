@@ -6,17 +6,17 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 
-class LastWeekData extends Controller
+class AllDataAverageController extends Controller
 {
     /**
-     * @Route("/lastweek", name="LastWeek")
+     * @Route("/AllDataAverage", name="AllDataAverage")
      */
 
-    public function GetLastWeekData()
+    public function GetAllDataAverage()
     {
         // Get cURL resource
         $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, "https://pollutometerapi.azurewebsites.net/api/Readings/lastweek");
+        curl_setopt($curl, CURLOPT_URL, "https://pollutometerapi.azurewebsites.net/api/Readings");
         curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-type: application/json')); // Assuming you're requesting JSON
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         // Send the request & save response to $resp
@@ -34,8 +34,6 @@ class LastWeekData extends Controller
             $data[$index]['TimeStamp'] = gmdate('d F l', $item['TimeStamp']);
             $readings[$data[$index]['TimeStamp']][] = $data[$index];
         }
-
-
 
        $gasAverage = array('Co' => 0, 'No' => 0, 'So' => 0);
         foreach($readings as $key => $item)
@@ -66,7 +64,5 @@ class LastWeekData extends Controller
         $response = new Response($data);
         $response->headers->set('Content-Type', 'application/json');
         return $response;
-
-
     }
 }

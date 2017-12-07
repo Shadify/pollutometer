@@ -14,8 +14,11 @@
                 <img src="https://cdn3.iconfinder.com/data/icons/christmas-icon-set-pixel-perfect/64/christmas-color-12-512.png" alt="Pollutometer" width="50px" height="auto">
                 <span>Pollutometer</span>
             </a>
-            <a class="navbar-item" href="/AllDataReadings">
-                <span>All Data Readings</span>
+            <a class="navbar-item" href="/{{ path('AllData') }}">
+                <span>All Data</span>
+            </a>
+            <a class="navbar-item" href="/{{ path('LastWeekData') }}">
+                <span>Last Week Data</span>
             </a>
         </div>
     </nav>

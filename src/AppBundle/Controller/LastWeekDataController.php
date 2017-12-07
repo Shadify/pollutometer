@@ -5,17 +5,17 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 
-class AllDataController extends Controller
+class LastWeekDataController extends Controller
 {
     /**
-     * @Route("/AllData", name="AllData")
+     * @Route("/LastWeekData", name="LastWeekData")
      */
 
     public function GetAllData()
     {
         // Get cURL resource
         $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, "https://pollutometerapi.azurewebsites.net/api/Readings");
+        curl_setopt($curl, CURLOPT_URL, "https://pollutometerapi.azurewebsites.net/api/Readings/lastweek");
         curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-type: application/json')); // Assuming you're requesting JSON
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         // Send the request & save response to $resp
@@ -37,7 +37,7 @@ class AllDataController extends Controller
 
         $parametersToTwig = array("data" => $data);
 
-        return $this->render('default/AllData.html.twig',$parametersToTwig);
+        return $this->render('default/LastWeekData.html.twig',$parametersToTwig);
 
     }
 }

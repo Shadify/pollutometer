@@ -1,6 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<div class="columns">
+    <div class="column is-narrow">
 <table class="table">
     <thead class="thead">
         <tr class="tr">
@@ -21,9 +23,13 @@
     </tbody>
     {% endfor %}
 </table>
+    </div>
+    <div class="column">
 <canvas id="ctx"></canvas>
+    </div>
+</div>
 {% endblock %}
 {% block javascripts %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
-    <script src="{{ asset('js/chartOfReadings.js') }}"></script
+    <script src="{{ asset('js/AllDataChart.js') }}"></script
 {% endblock %}

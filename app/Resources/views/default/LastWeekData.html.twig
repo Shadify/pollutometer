@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="columns">
+    <div class="column is-narrow">
+<table class="table">
+    <thead class="thead">
+        <tr class="tr">
+            <th>TimeStamp</th>
+            <th>Co</th>
+            <th>No</th>
+            <th>So</th>
+        </tr>
+    </thead>
+    <tbody class="tbody">
+        <tr class="tr">
+            {% for table in data %}
+            <td class="td">{{ table.TimeStamp }}</td>
+            <td class="td">{{ table.Co }}</td>
+            <td class="td">{{ table.No }}</td>
+            <td class="td">{{ table.So }}</td>
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+    </div>
+    <div class="column">
+<canvas id="ctx"></canvas>
+    </div>
+</div>
+{% endblock %}
+{% block javascripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+    <script src="{{ asset('js/LastWeekDataChart.js') }}"></script
+{% endblock %}
