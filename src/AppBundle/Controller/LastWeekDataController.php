@@ -38,6 +38,5 @@ class LastWeekDataController extends Controller
         $parametersToTwig = array("data" => $data);
 
         return $this->render('default/LastWeekData.html.twig',$parametersToTwig);
-
     }
 }

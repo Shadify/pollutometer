@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<table class="table">
+    <thead class="thead">
+    <tr class="tr">
+        <th>Track</th>
+        <th>Train type</th>
+        <th>Train number</th>
+        <th>Destination name</th>
+        <th>Arrival</th>
+        <th>Departure</th>
+        <th>Delay</th>
+    </tr>
+    </thead>
+    <tbody class="tbody">
+    <tr class="tr">
+        {% for table in data %}
+        <td class="td">{{ table.Track }}</td>
+        <td class="td">{{ table.TrainType }}</td>
+        <td class="td">{{ table.TrainNumber }}</td>
+        <td class="td">{{ table.DestinationName }}</td>
+        <td class="td">{{ table.ScheduledArrival }}</td>
+        <td class="td">{{ table.ScheduledDeparture }}</td>
+        <td class="td">{{ table.DepartureDelay }}</td>
+    </tr>
+    </tbody>
+    {% endfor %}
+</table>
+{% endblock %}
+{% block javascripts %}
+{% endblock %}
