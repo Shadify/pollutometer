@@ -4,25 +4,21 @@
 <table class="table">
     <thead class="thead">
     <tr class="tr">
-        <th>Track</th>
-        <th>Train type</th>
-        <th>Train number</th>
-        <th>Destination name</th>
-        <th>Arrival</th>
-        <th>Departure</th>
-        <th>Delay</th>
+        <th>Name</th>
+        <th>Time</th>
+        <th>Date</th>
+        <th>Destination</th>
+        <th>AQI</th>
     </tr>
     </thead>
     <tbody class="tbody">
     <tr class="tr">
         {% for table in data %}
-        <td class="td">{{ table.Track }}</td>
-        <td class="td">{{ table.TrainType }}</td>
-        <td class="td">{{ table.TrainNumber }}</td>
-        <td class="td">{{ table.DestinationName }}</td>
-        <td class="td">{{ table.ScheduledArrival }}</td>
-        <td class="td">{{ table.ScheduledDeparture }}</td>
-        <td class="td">{{ table.DepartureDelay }}</td>
+        <td class="td">{{ table.name }}</td>
+        <td class="td">{{ table.time }}</td>
+        <td class="td">{{ table.date }}</td>
+        <td class="td">{{ table.finalStop }}</td>
+        <td class="td">{{ table.direction }}</td>
     </tr>
     </tbody>
     {% endfor %}
