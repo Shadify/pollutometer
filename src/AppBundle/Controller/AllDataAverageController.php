@@ -28,6 +28,10 @@ class AllDataAverageController extends Controller
 
         $readings = array();
 
+        usort($data, function($a,$b){
+            return $a['TimeStamp'] - $b['TimeStamp'];
+        });
+
 
         foreach($data as $index => $item)
         {
