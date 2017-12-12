@@ -20,7 +20,9 @@ class TrainScheduleController extends Controller
 
     public function GetSchedule()
     {
-        $url = "http://xmlopen.rejseplanen.dk/bin/rest.exe/multiDepartureBoard?id1=008600617&date=08.12.17&time=00%3A00&useBus=0&format=json";
+        $url = "http://xmlopen.rejseplanen.dk/bin/rest.exe/multiDepartureBoard?id1=008600617&date=" .
+            date("d.m.Y") .
+            "&time=00%3A00&useBus=0&format=json";
 
         // Get cURL resource
         $curl = curl_init();
