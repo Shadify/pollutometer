@@ -25,13 +25,12 @@ class AllDataAverageController extends Controller
         curl_close($curl);
 
         $data = json_decode($resp, true);
-
         $readings = array();
+        $results = array();
 
         usort($data, function($a,$b){
             return $a['TimeStamp'] - $b['TimeStamp'];
         });
-
 
         foreach($data as $index => $item)
         {
@@ -39,12 +38,11 @@ class AllDataAverageController extends Controller
             $readings[$data[$index]['TimeStamp']][] = $data[$index];
         }
 
-       $gasAverage = array('Co' => 0, 'No' => 0, 'So' => 0);
-        foreach($readings as $key => $item)
+        foreach ($readings as $key => $item)
         {
-            foreach($readings[$key] as $index => $values)
+            $gasAverage = array('Co' => 0, 'No' => 0, 'So' => 0);
+            foreach ($readings[$key] as $index => $values)
             {
-
                 $gasAverage['Co'] += $readings[$key][$index]['Co'];
                 $gasAverage['No'] += $readings[$key][$index]['No'];
                 $gasAverage['So'] += $readings[$key][$index]['So'];
@@ -55,15 +53,11 @@ class AllDataAverageController extends Controller
                     $gasAverage['No'] /= $index + 1;
                     $gasAverage['So'] /= $index + 1;
                 }
+                $results[$key] = $gasAverage;
             }
-
-            $readings[$key] = $gasAverage;
-
         }
 
-
-        $data = json_encode($readings);
-
+        $data = json_encode($results);
 
         $response = new Response($data);
         $response->headers->set('Content-Type', 'application/json');
