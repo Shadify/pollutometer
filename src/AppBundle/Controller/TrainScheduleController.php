@@ -61,7 +61,7 @@ class TrainScheduleController extends Controller
             if($trainTimeStamp > time())
             {
                 $trains[$i]['direction'] = 0;
-                break;
+                continue;
             }
 
             foreach ($readings as $reading) {
