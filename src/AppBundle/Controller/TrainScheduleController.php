@@ -58,6 +58,8 @@ class TrainScheduleController extends Controller
             $datetime = $datesplit[0] . "." . $datesplit[1] . ".20" . $datesplit[2] . " " . $time;
             $trainTimeStamp = strtotime($datetime) + 3600;
 
+            if($trainTimeStamp > time()) break;
+
             foreach ($readings as $reading) {
                 if (abs($reading['TimeStamp'] - $trainTimeStamp) < abs($closest - $trainTimeStamp))
                     $closest = $reading['TimeStamp'];
